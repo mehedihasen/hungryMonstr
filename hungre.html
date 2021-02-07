@@ -23,11 +23,7 @@
 
     <script>
    
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
-            .then(res => res.json())
-            .then(data => displyName(data))
-
-
+       
         function displyName(text) {
             for (let i = 0; i < text.meals.length; i++) {
                 const element = text.meals[i];
@@ -79,7 +75,15 @@
 `
         }
         }
+function clicke() {
+    const name = document.getElementById("fiend").value;
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+            .then(res => res.json())
+            .then(data => displyName(data))
 
+
+
+}
         
             
       
