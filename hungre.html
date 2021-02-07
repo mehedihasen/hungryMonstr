@@ -12,7 +12,7 @@
 <body>
     <section id="sp">
         <div id="hello"></div>
-        <span><input type="search" name="" id="fiend"><button onclick="clicke()">search</button></span>
+        <span><input type="search" name="" id="fiend"><button onclick="search()">search</button></span>
 
         <div id="store">
 
@@ -24,14 +24,14 @@
     <script>
    
        
-        function displyName(text) {
-            for (let i = 0; i < text.meals.length; i++) {
-                const element = text.meals[i];
+        const displyName=name=>{
+            for (let i = 0; i < name.meals.length; i++) {
+                const element = name.meals[i];
 
                 const mine = document.getElementById("mine");
                 const div = document.createElement("div")
                 div.className = "box"
-                const texte = ` 
+                const createElement = ` 
             
                 <div onclick="add('${element.strMeal}')">
                <h1 class= "hello"> ${element.strMeal}</h1>
@@ -42,7 +42,7 @@
             
                   `
                  
-                div.innerHTML = texte;
+                div.innerHTML =createElement;
                 mine.appendChild(div);
             }
         }
@@ -75,7 +75,7 @@
 `
         }
         }
-function clicke() {
+function search() {
     const name = document.getElementById("fiend").value;
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
             .then(res => res.json())
